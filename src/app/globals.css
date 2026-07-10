@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050604;
+  --foreground: #F3F1E7;
+
+  --color-forest-black: #050604;
+  --color-deep-forest: #0A0E07;
+  --color-soft-black: #10130D;
+  --color-bobby-lime: #C8FF00;
+  --color-dark-lime: #93C900;
+  --color-warm-ivory: #F3F1E7;
+  --color-muted-fog: #A5AA9A;
+  --color-old-gold: #A98747;
+  --color-leather-brown: #4A2C17;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-forest-black: var(--color-forest-black);
+  --color-deep-forest: var(--color-deep-forest);
+  --color-soft-black: var(--color-soft-black);
+  --color-bobby-lime: var(--color-bobby-lime);
+  --color-dark-lime: var(--color-dark-lime);
+  --color-warm-ivory: var(--color-warm-ivory);
+  --color-muted-fog: var(--color-muted-fog);
+  --color-old-gold: var(--color-old-gold);
+  --color-leather-brown: var(--color-leather-brown);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-forest-black);
+  color: var(--color-warm-ivory);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), serif;
+}
+
+/* Film grain overlay utility */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar - subtle, premium */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-forest-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-leather-brown);
+  border-radius: 4px;
+}
