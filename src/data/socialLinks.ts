@@ -3,9 +3,10 @@ export interface SocialLink {
   href: string;
 }
 
-// TODO: Replace with real URLs before launch.
+export const OFFICIAL_X_URL = "https://x.com/bobbyhood67";
+
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "X", href: "https://x.com/PLACEHOLDER" },
+  { label: "X", href: OFFICIAL_X_URL },
 ];
 
 // Set to a real address string when the token is live. Keep null until then.

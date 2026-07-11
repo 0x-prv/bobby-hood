@@ -3,9 +3,12 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { NAV_LINKS } from "@/data/navigation";
+import { SOCIAL_LINKS } from "@/data/socialLinks";
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
+  const xLink =
+    SOCIAL_LINKS.find((link) => link.label === "X") ?? SOCIAL_LINKS[0];
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -40,7 +43,7 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="/" className="flex items-center gap-2.5">
+          <a href="/" className="flex items-center gap-2.5">
             <Image
               src="/images/bobby-hood.png"
               alt="Bobby Hood"
@@ -65,7 +68,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://x.com/PLACEHOLDER"
+              href={xLink?.href ?? "#"}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm uppercase tracking-wider text-warm-ivory/80 hover:text-bobby-lime transition-colors"
