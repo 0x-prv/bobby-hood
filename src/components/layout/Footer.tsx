@@ -11,8 +11,8 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-wrap gap-x-8 gap-y-3 text-sm uppercase tracking-wider text-warm-ivory/70">
-            <a href="#story" className="hover:text-bobby-lime transition-colors">Story</a>
-            <a href="#gang" className="hover:text-bobby-lime transition-colors">Gang</a>
+            <a href="/story" className="hover:text-bobby-lime transition-colors">Story</a>
+            <a href="/gang" className="hover:text-bobby-lime transition-colors">Gang</a>
             <a href="https://x.com/PLACEHOLDER" target="_blank" rel="noopener noreferrer" className="hover:text-bobby-lime transition-colors">X</a>
             <a href="/terms" className="hover:text-bobby-lime transition-colors">Terms</a>
             <a href="/privacy" className="hover:text-bobby-lime transition-colors">Privacy</a>
