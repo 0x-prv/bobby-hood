@@ -1,10 +1,13 @@
 import { SOCIAL_LINKS } from "@/data/socialLinks";
+
 import {
   AFFILIATION_DISCLAIMER,
   FOOTER_DISCLAIMER,
   RISK_DISCLOSURE,
   COPYRIGHT,
 } from "@/lib/constants";
+
+import { FOOTER_DISCLAIMER, RISK_DISCLOSURE, COPYRIGHT } from "@/lib/constants";
 
 export default function Footer() {
   const xLink =
