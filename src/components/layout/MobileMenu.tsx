@@ -1,6 +1,7 @@
 "use client";
 
 import { NAV_LINKS } from "@/data/navigation";
+import { SOCIAL_LINKS } from "@/data/socialLinks";
 import { DISCLAIMER } from "@/lib/constants";
 
 interface MobileMenuProps {
@@ -9,6 +10,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const xLink =
+    SOCIAL_LINKS.find((link) => link.label === "X") ?? SOCIAL_LINKS[0];
   return (
     <div
       className={`fixed inset-0 z-50 bg-forest-black transition-transform duration-300 md:hidden ${
@@ -38,7 +41,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           </a>
         ))}
         <a
-          href="https://x.com/PLACEHOLDER"
+          href={xLink?.href ?? "#"}
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClose}
