@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
 import { useReducedMotionPreference } from "@/hooks/useReducedMotionPreference";
 import ForestSigil3D from "./ForestSigil3D";
@@ -7,44 +8,51 @@ import ForestSigil3D from "./ForestSigil3D";
 const ROUTE_CARDS = [
   {
     marker: "I",
-    eyebrow: "Chapter Scrolls",
-    title: "Read the Story",
+    eyebrow: "Chapter One Through Five",
+    title: "The Bobby Hood Story",
     description:
-      "Follow Bobby from forgotten cousin to the first meme outlaw of the new forest.",
+      "A structured five chapter narrative tracing Bobby's origin, positioning, and role within the Robinhood Chain ecosystem.",
     href: "/story",
-    cta: "Open the lore",
+    cta: "Read the full story",
     glow: "from-old-gold/25 via-old-gold/5 to-transparent",
     markerClass: "border-old-gold/35 text-old-gold shadow-[0_0_30px_rgba(214,168,74,0.12)]",
     edgeClass: "from-old-gold/0 via-old-gold/35 to-old-gold/0",
   },
   {
     marker: "II",
-    eyebrow: "Community Outlaws",
-    title: "Meet the Gang",
+    eyebrow: "Community Structure",
+    title: "The Gang",
     description:
-      "See the meme makers, early believers, trench survivors, and timeline outlaws under the hood.",
+      "The builders, holders, and contributors driving Bobby Hood's growth across the timeline and the wider ecosystem.",
     href: "/gang",
-    cta: "Meet the crew",
+    cta: "Meet the community",
     glow: "from-bobby-lime/25 via-bobby-lime/5 to-transparent",
     markerClass: "border-bobby-lime/35 text-bobby-lime shadow-[0_0_30px_rgba(200,255,0,0.13)]",
     edgeClass: "from-bobby-lime/0 via-bobby-lime/35 to-bobby-lime/0",
   },
   {
     marker: "III",
-    eyebrow: "Meme Arsenal",
-    title: "Fire the Memes",
+    eyebrow: "Media & Content",
+    title: "The Meme Arsenal",
     description:
-      "Jump to the weapons Bobby actually knows how to use: raids, posts, and timeline arrows.",
+      "Original content, campaigns, and community assets built to grow reach and engagement across the timeline.",
     href: "#memes",
-    cta: "Load the arsenal",
+    cta: "View the arsenal",
     glow: "from-warm-ivory/20 via-bobby-lime/5 to-transparent",
     markerClass: "border-warm-ivory/25 text-warm-ivory shadow-[0_0_30px_rgba(244,238,220,0.10)]",
     edgeClass: "from-warm-ivory/0 via-warm-ivory/30 to-warm-ivory/0",
   },
 ];
 
+const STATS = [
+  { label: "Chapters", value: "05" },
+  { label: "Core Pillars", value: "03" },
+  { label: "Ecosystem", value: "Robinhood Chain" },
+];
+
 export default function HomeRouteCards() {
   const prefersReducedMotion = useReducedMotionPreference();
+  const [showGif, setShowGif] = useState(false);
 
   return (
     <section className="relative overflow-hidden border-t border-white/5 bg-forest-black px-6 py-20 sm:py-28">
@@ -60,16 +68,50 @@ export default function HomeRouteCards() {
           className="mx-auto max-w-3xl text-center"
         >
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-old-gold">
+            Project Overview
+          </p>
+          <button
+            type="button"
+            onClick={() => setShowGif(true)}
+            className="cursor-pointer font-display text-3xl leading-tight text-warm-ivory transition-colors duration-300 hover:text-bobby-lime sm:text-4xl md:text-5xl"
+          >
             Enter the Forest
-          </p>
-          <h2 className="font-display text-3xl leading-tight text-warm-ivory sm:text-4xl md:text-5xl">
-            Choose your path through Bobby&apos;s new forest.
-          </h2>
+          </button>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-warm-ivory/70 sm:text-base">
-            The full legend and the full gang now have their own trails. Start
-            with the lore, meet the outlaws, or head straight for the meme
-            arsenal.
+            Bobby Hood is structured across three core pillars: narrative,
+            community, and content. Explore how each pillar supports the
+            project&apos;s growth within the Robinhood Chain ecosystem.
           </p>
+
+          {showGif && (
+            <motion.div
+              initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="relative mx-auto mt-10 max-w-2xl overflow-hidden rounded-[1.75rem] border border-bobby-lime/25 shadow-[0_30px_100px_rgba(0,0,0,0.45)]"
+            >
+              <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-bobby-lime/10 blur-2xl" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/gifs/robinhoodgif.gif"
+                alt="Bobby Hood animation"
+                className="relative w-full"
+              />
+            </motion.div>
+          )}
+
+          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 border-y border-white/10 py-6">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="font-display text-xl text-bobby-lime sm:text-2xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-warm-ivory/50 sm:text-xs">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3 [perspective:1200px]">

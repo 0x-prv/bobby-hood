@@ -1,3 +1,4 @@
+import Image from "next/image";
 import FilmGrain from "@/components/cinematic/FilmGrain";
 import GangSection from "@/components/sections/GangSection";
 
@@ -15,6 +16,18 @@ export default function GangPage() {
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-old-gold">
             The Bobby Hood Gang
           </p>
+
+          <div className="relative mx-auto mb-8 w-full max-w-md overflow-hidden rounded-2xl">
+            <Image
+              src="/gifs/robinhoodgif.gif"
+              alt="Bobby Hood animation"
+              width={800}
+              height={450}
+              unoptimized
+              className="w-full object-contain"
+            />
+          </div>
+
           <h1 className="font-display text-4xl leading-tight text-warm-ivory sm:text-5xl md:text-6xl">
             Every holder wears the hood.
           </h1>
