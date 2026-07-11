@@ -4,6 +4,7 @@ import ChapterTwo from "@/components/chapters/ChapterTwo";
 import ChapterThree from "@/components/chapters/ChapterThree";
 import ChapterFour from "@/components/chapters/ChapterFour";
 import ChapterFive from "@/components/chapters/ChapterFive";
+import StoryClosingCTA from "@/components/sections/StoryClosingCTA";
 
 export default function StoryPage() {
   return (
@@ -23,8 +24,8 @@ export default function StoryPage() {
             The forgotten cousin gets his own legend.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-warm-ivory/70 sm:text-base">
-            Five chapters trace Bobby from Sherwood&apos;s missed shots to the meme
-            outlaw of Robinhood Chain.
+            Five chapters trace Bobby from Sherwood&apos;s missed shots to the
+            meme outlaw of Robinhood Chain.
           </p>
         </div>
       </section>
@@ -36,6 +37,8 @@ export default function StoryPage() {
         <ChapterFour />
         <ChapterFive />
       </div>
+
+      <StoryClosingCTA />
     </main>
   );
 }
