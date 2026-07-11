@@ -7,7 +7,7 @@ export default function MemeArsenal() {
   const prefersReducedMotion = useReducedMotionPreference();
 
   return (
-    <section className="relative py-20 sm:py-28 px-6 border-t border-white/5 bg-deep-forest/40">
+    <section id="memes" className="relative py-20 sm:py-28 px-6 border-t border-white/5 bg-forest-black">
       <div className="mx-auto max-w-3xl text-center">
         <motion.p
           initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 16 }}

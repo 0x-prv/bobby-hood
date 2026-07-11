@@ -50,7 +50,7 @@ export default function FinalCTA() {
           ) : null}
 
           <a
-            href="#story"
+            href="/story"
             className="w-full rounded-full border border-warm-ivory/20 px-8 py-3 text-center text-sm uppercase tracking-wider text-warm-ivory transition-colors hover:border-bobby-lime hover:text-bobby-lime sm:w-auto"
           >
             Read the Legend

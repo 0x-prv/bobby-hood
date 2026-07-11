@@ -50,13 +50,13 @@ export default function CinematicHero() {
 
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
             <a 
-              href="#story"
+              href="/story"
               className="w-full sm:w-auto rounded-full bg-bobby-lime px-8 py-3 text-sm uppercase tracking-wider font-medium text-forest-black hover:bg-dark-lime transition-colors text-center"
             >
               Begin His Story
             </a>
             <a
-              href="#gang"
+              href="/gang"
               className="w-full sm:w-auto rounded-full border border-warm-ivory/20 px-8 py-3 text-sm uppercase tracking-wider text-warm-ivory hover:border-bobby-lime hover:text-bobby-lime transition-colors text-center"
             >
               Join the Gang

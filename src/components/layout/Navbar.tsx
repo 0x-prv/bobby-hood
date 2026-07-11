@@ -40,7 +40,7 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-center gap-2.5">
+        <a href="/" className="flex items-center gap-2.5">
             <Image
               src="/images/bobby-hood.png"
               alt="Bobby Hood"
@@ -73,7 +73,7 @@ export default function Navbar() {
               X
             </a>
             <a
-              href="#gang"
+              href="/gang"
               className="rounded-full border border-bobby-lime/40 px-5 py-2 text-sm uppercase tracking-wider text-bobby-lime hover:bg-bobby-lime hover:text-forest-black transition-colors"
             >
               Enter the Forest

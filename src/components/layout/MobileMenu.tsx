@@ -47,7 +47,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           X
         </a>
         <a
-          href="#gang"
+          href="/gang"
           onClick={onClose}
           className="mt-4 rounded-full border border-bobby-lime px-8 py-3 text-sm uppercase tracking-wider text-bobby-lime"
         >
