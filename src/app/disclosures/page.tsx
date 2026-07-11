@@ -1,3 +1,5 @@
+import { AFFILIATION_DISCLAIMER } from "@/lib/constants";
+
 export const metadata = {
   title: "Disclosures | $BOBBY",
 };
@@ -14,30 +16,40 @@ export default function DisclosuresPage() {
         </h1>
 
         <div className="space-y-6 text-sm sm:text-base text-warm-ivory/75 leading-relaxed">
+          <section className="rounded-2xl border border-white/10 bg-soft-black/55 p-5">
+            <h2 className="font-display text-2xl text-warm-ivory">
+              Is Bobby Hood affiliated with Robinhood?
+            </h2>
+            <p className="mt-3">
+              {AFFILIATION_DISCLAIMER} Bobby Hood does not represent,
+              impersonate, or speak on behalf of Robinhood Markets, Inc.,
+              Robinhood Chain, or any related entity. References to Robinhood
+              Chain are used only to describe the ecosystem that inspired this
+              independent community project.
+            </p>
+          </section>
           <p>
-            $BOBBY is an unofficial community memecoin created for
-            entertainment and community participation. It is not affiliated
-            with, sponsored by, or endorsed by Robinhood Markets, Inc. or any
-            of its affiliates.
+            $BOBBY is an unofficial community memecoin created for entertainment
+            and community participation. It is not affiliated with, sponsored
+            by, or endorsed by Robinhood Markets, Inc. or any of its affiliates.
           </p>
           <p>
             Cryptocurrency and memecoins are highly speculative and volatile.
-            Nothing on this website constitutes financial, investment, legal,
-            or tax advice. Always conduct your own research and never commit
-            funds you cannot afford to lose.
+            Nothing on this website constitutes financial, investment, legal, or
+            tax advice. Always conduct your own research and never commit funds
+            you cannot afford to lose.
           </p>
           <p>
-            No official contract address has been published at this time.
-            Any contract address claiming to be $BOBBY outside of official
-            community channels should be treated with caution. Always verify
-            information through official community links before taking any
-            action.
+            No official contract address has been published at this time. Any
+            contract address claiming to be $BOBBY outside of official community
+            channels should be treated with caution. Always verify information
+            through official community links before taking any action.
           </p>
           <p>
             This draft is provided as placeholder legal language and has not
-            been reviewed by qualified legal counsel. It should be reviewed
-            and finalized by a licensed attorney before this site is used in
-            a live production or commercial capacity.
+            been reviewed by qualified legal counsel. It should be reviewed and
+            finalized by a licensed attorney before this site is used in a live
+            production or commercial capacity.
           </p>
         </div>
       </div>

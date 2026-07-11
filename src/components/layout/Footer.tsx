@@ -1,4 +1,12 @@
 import { SOCIAL_LINKS } from "@/data/socialLinks";
+
+import {
+  AFFILIATION_DISCLAIMER,
+  FOOTER_DISCLAIMER,
+  RISK_DISCLOSURE,
+  COPYRIGHT,
+} from "@/lib/constants";
+
 import { FOOTER_DISCLAIMER, RISK_DISCLOSURE, COPYRIGHT } from "@/lib/constants";
 
 export default function Footer() {
@@ -53,6 +61,17 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/5 pt-8 space-y-4">
+          <section
+            aria-label="Legal affiliation notice"
+            className="max-w-3xl rounded-2xl border border-white/10 bg-forest-black/35 p-4"
+          >
+            <p className="text-[0.68rem] uppercase tracking-[0.25em] text-old-gold/80">
+              Legal notice
+            </p>
+            <p className="mt-2 text-xs leading-relaxed text-muted-fog">
+              {AFFILIATION_DISCLAIMER}
+            </p>
+          </section>
           <p className="text-xs leading-relaxed text-muted-fog max-w-2xl">
             {FOOTER_DISCLAIMER}
           </p>
