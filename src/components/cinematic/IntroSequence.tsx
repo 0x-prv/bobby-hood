@@ -12,23 +12,14 @@ const LINES = [
   "Bobby Hood.",
 ];
 
-export default function IntroSequence({ onComplete }: { onComplete: () => void }) {
+export default function IntroSequence() {
   const [hasSeenIntro, setHasSeenIntro, hydrated] = useLocalStorage<boolean>(
     "bobby-seen-intro",
     false
   );
-  const [visible, setVisible] = useState(false);
   const [lineIndex, setLineIndex] = useState(0);
   const prefersReducedMotion = useReducedMotionPreference();
-
-  useEffect(() => {
-    if (!hydrated) return;
-    if (hasSeenIntro) {
-      onComplete();
-      return;
-    }
-    setVisible(true);
-  }, [hydrated, hasSeenIntro, onComplete]);
+  const visible = hydrated && !hasSeenIntro && !prefersReducedMotion;
 
   useEffect(() => {
     if (!visible) return;
@@ -43,11 +34,9 @@ export default function IntroSequence({ onComplete }: { onComplete: () => void }
 
   function finish() {
     setHasSeenIntro(true);
-    setVisible(false);
-    onComplete();
   }
 
-  if (!hydrated || hasSeenIntro) return null;
+  if (!visible) return null;
 
   return (
     <AnimatePresence>
@@ -80,8 +69,9 @@ export default function IntroSequence({ onComplete }: { onComplete: () => void }
           </div>
 
           <button
+            type="button"
             onClick={finish}
-            className="absolute bottom-10 right-8 text-xs uppercase tracking-widest text-muted-fog hover:text-bobby-lime transition-colors"
+            className="absolute bottom-8 right-6 rounded-full border border-white/15 px-5 py-3 text-xs uppercase tracking-widest text-muted-fog transition-colors hover:border-bobby-lime/40 hover:text-bobby-lime focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bobby-lime sm:bottom-10 sm:right-8"
           >
             Skip Intro
           </button>

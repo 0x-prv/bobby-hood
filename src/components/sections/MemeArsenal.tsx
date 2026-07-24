@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { useReducedMotionPreference } from "@/hooks/useReducedMotionPreference";
+import { OFFICIAL_X_URL } from "@/data/socialLinks";
 
 // Add tweet URLs here as the community posts memes.
 // Example: "https://x.com/bobbyhood67/status/1234567890123456789"
@@ -76,11 +77,20 @@ export default function MemeArsenal() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mx-auto max-w-3xl rounded-2xl border border-dashed border-white/15 py-16 px-6"
+            className="mx-auto max-w-2xl rounded-2xl border border-dashed border-white/15 py-10 px-6"
           >
-            <p className="text-sm sm:text-base text-muted-fog">
-              The arsenal is being loaded.
+            <p className="text-sm leading-relaxed text-muted-fog sm:text-base">
+              Original community assets, reaction memes and Bobby Hood campaign
+              material are being prepared.
             </p>
+            <a
+              href={OFFICIAL_X_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex rounded-full border border-bobby-lime/35 px-6 py-3 text-xs uppercase tracking-wider text-bobby-lime transition-colors hover:bg-bobby-lime hover:text-forest-black"
+            >
+              Follow on X
+            </a>
           </motion.div>
         ) : (
           <div

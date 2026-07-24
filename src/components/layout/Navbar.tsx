@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { NAV_LINKS } from "@/data/navigation";
 import { SOCIAL_LINKS } from "@/data/socialLinks";
 import MobileMenu from "./MobileMenu";
@@ -42,8 +43,8 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="/" className="flex items-center gap-2.5">
+        <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+          <Link href="/" className="flex items-center gap-2.5">
             <Image
               src="/images/bobby-hood.png"
               alt="Bobby Hood"
@@ -55,9 +56,9 @@ export default function Navbar() {
             <span className="font-display text-lg tracking-wide text-warm-ivory">
               BOBBY
             </span>
-          </a>
+          </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-7">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -76,16 +77,18 @@ export default function Navbar() {
               X
             </a>
             <a
-              href="/gang"
+              href={xLink?.href ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-bobby-lime/40 px-5 py-2 text-sm uppercase tracking-wider text-bobby-lime hover:bg-bobby-lime hover:text-forest-black transition-colors"
             >
-              Enter the Forest
+              Follow the Build
             </a>
           </div>
 
           <button
             onClick={() => setMenuOpen(true)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="lg:hidden flex flex-col gap-1.5 rounded p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bobby-lime"
             aria-label="Open menu"
           >
             <span className="block h-[1.5px] w-6 bg-warm-ivory" />
@@ -94,7 +97,9 @@ export default function Navbar() {
         </nav>
       </header>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      {menuOpen ? (
+        <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      ) : null}
     </>
   );
 }

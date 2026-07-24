@@ -14,7 +14,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
     SOCIAL_LINKS.find((link) => link.label === "X") ?? SOCIAL_LINKS[0];
   return (
     <div
-      className={`fixed inset-0 z-50 bg-forest-black transition-transform duration-300 md:hidden ${
+      className={`fixed inset-0 z-50 overflow-y-auto bg-forest-black transition-transform duration-300 lg:hidden ${
         open ? "translate-x-0" : "translate-x-full"
       }`}
       aria-hidden={!open}
@@ -29,13 +29,14 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         </button>
       </div>
 
-      <nav className="flex flex-col items-center gap-8 mt-12">
+      <nav aria-label="Mobile navigation" className="flex flex-col items-center gap-6 mt-4 pb-36">
         {NAV_LINKS.map((link) => (
           <a
             key={link.href}
             href={link.href}
             onClick={onClose}
-            className="text-3xl font-display text-warm-ivory hover:text-bobby-lime transition-colors"
+            tabIndex={open ? 0 : -1}
+            className="text-2xl font-display text-warm-ivory hover:text-bobby-lime transition-colors"
           >
             {link.label}
           </a>
@@ -45,16 +46,20 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClose}
-          className="text-3xl font-display text-warm-ivory hover:text-bobby-lime transition-colors"
+          tabIndex={open ? 0 : -1}
+          className="text-2xl font-display text-warm-ivory hover:text-bobby-lime transition-colors"
         >
           X
         </a>
         <a
-          href="/gang"
+          href={xLink?.href ?? "#"}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={onClose}
+          tabIndex={open ? 0 : -1}
           className="mt-4 rounded-full border border-bobby-lime px-8 py-3 text-sm uppercase tracking-wider text-bobby-lime"
         >
-          Enter the Forest
+          Follow the Build
         </a>
       </nav>
 

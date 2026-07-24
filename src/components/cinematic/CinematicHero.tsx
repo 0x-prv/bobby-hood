@@ -59,36 +59,40 @@ export default function CinematicHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
         >
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-bobby-lime/25 bg-bobby-lime/5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-bobby-lime">
+            <span className="h-2 w-2 rounded-full bg-bobby-lime" aria-hidden="true" />
+            Building in public
+          </div>
+
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.1] text-warm-ivory">
-            Everyone knows Robin.
+            The First Meme Outlaw With An Onchain Reputation.
           </h1>
 
-          <p className="mt-4 font-display italic text-xl md:text-2xl text-muted-fog">
-            But nobody talks about his cousin.
-          </p>
-
-          <p className="mt-2 font-display text-3xl md:text-4xl text-bobby-lime">
-            Bobby Hood.
-          </p>
-
-          <p className="mt-6 max-w-md mx-auto text-sm md:text-base text-warm-ivory/70 leading-relaxed">
-            The failed archer. The forgotten cousin. The first meme outlaw of the new forest.
+          <p className="mt-6 max-w-2xl mx-auto text-sm md:text-base text-warm-ivory/70 leading-relaxed">
+            Bobby Hood is evolving from a Robinhood Chain-native character into a
+            market-intelligence and gaming agent with a transparent public record.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 justify-center">
             <a
-              href="/story"
+              href="#agent"
               className="w-full sm:w-auto rounded-full bg-bobby-lime px-8 py-3 text-sm uppercase tracking-wider font-medium text-forest-black hover:bg-dark-lime transition-colors text-center"
             >
-              Begin His Story
+              Discover the Agent
             </a>
        <a     
-              href="/gang"
+              href="#ecosystem"
               className="w-full sm:w-auto rounded-full border border-warm-ivory/20 px-8 py-3 text-sm uppercase tracking-wider text-warm-ivory hover:border-bobby-lime hover:text-bobby-lime transition-colors text-center"
             >
-              Join the Gang
+              Explore the Ecosystem
             </a>
           </div>
+          <a
+            href="/story"
+            className="mt-6 inline-flex text-xs uppercase tracking-[0.2em] text-warm-ivory/60 underline decoration-white/20 underline-offset-4 transition-colors hover:text-bobby-lime focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bobby-lime"
+          >
+            Read the Legend
+          </a>
         </motion.div>
       </div>
 

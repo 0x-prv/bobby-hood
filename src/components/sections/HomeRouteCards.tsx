@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "motion/react";
 import { useReducedMotionPreference } from "@/hooks/useReducedMotionPreference";
 import ForestSigil3D from "./ForestSigil3D";
@@ -8,54 +7,62 @@ import ForestSigil3D from "./ForestSigil3D";
 const ROUTE_CARDS = [
   {
     marker: "I",
-    eyebrow: "Chapter One Through Five",
-    title: "The Bobby Hood Story",
+    eyebrow: "Intelligence",
+    title: "Bobby Alpha Agent",
     description:
-      "A structured five chapter narrative tracing Bobby's origin, positioning, and role within the Robinhood Chain ecosystem.",
-    href: "/story",
-    cta: "Read the full story",
+      "A planned market scout designed to analyze Robinhood Chain activity, publish explainable signals and build a transparent performance history.",
+    href: "#agent",
+    cta: "Discover the Agent",
+    status: "Building",
     glow: "from-old-gold/25 via-old-gold/5 to-transparent",
     markerClass: "border-old-gold/35 text-old-gold shadow-[0_0_30px_rgba(214,168,74,0.12)]",
     edgeClass: "from-old-gold/0 via-old-gold/35 to-old-gold/0",
   },
   {
     marker: "II",
-    eyebrow: "Community Structure",
-    title: "The Gang",
+    eyebrow: "Game",
+    title: "Last Archer Standing",
     description:
-      "The builders, holders, and contributors driving Bobby Hood's growth across the timeline and the wider ecosystem.",
-    href: "/gang",
-    cta: "Meet the community",
+      "A competitive Bobby Hood survival game where players loot, fight and outlast the rest of the forest.",
+    href: "#game",
+    cta: "View Game Status",
+    status: "In development",
     glow: "from-bobby-lime/25 via-bobby-lime/5 to-transparent",
     markerClass: "border-bobby-lime/35 text-bobby-lime shadow-[0_0_30px_rgba(200,255,0,0.13)]",
     edgeClass: "from-bobby-lime/0 via-bobby-lime/35 to-bobby-lime/0",
   },
   {
     marker: "III",
-    eyebrow: "Media & Content",
-    title: "The Meme Arsenal",
+    eyebrow: "Original IP",
+    title: "The Bobby Hood Story",
     description:
-      "Original content, campaigns, and community assets built to grow reach and engagement across the timeline.",
-    href: "#memes",
-    cta: "View the arsenal",
+      "The five-chapter origin of the forgotten cousin, failed archer and first meme outlaw of the new forest.",
+    href: "/story",
+    cta: "Read the Story",
+    status: "Live",
     glow: "from-warm-ivory/20 via-bobby-lime/5 to-transparent",
     markerClass: "border-warm-ivory/25 text-warm-ivory shadow-[0_0_30px_rgba(244,238,220,0.10)]",
     edgeClass: "from-warm-ivory/0 via-warm-ivory/30 to-warm-ivory/0",
   },
-];
-
-const STATS = [
-  { label: "Chapters", value: "05" },
-  { label: "Core Pillars", value: "03" },
-  { label: "Ecosystem", value: "Robinhood Chain" },
+  {
+    marker: "IV",
+    eyebrow: "Community",
+    title: "The Bobby Hood Gang",
+    description:
+      "The holders, builders, creators and community members helping write Bobby's next chapter.",
+    href: "/gang",
+    cta: "Meet the Gang",
+    status: "Open",
+    glow: "from-bobby-lime/20 via-old-gold/5 to-transparent",
+    markerClass: "border-bobby-lime/30 text-bobby-lime shadow-[0_0_30px_rgba(200,255,0,0.10)]",
+    edgeClass: "from-bobby-lime/0 via-old-gold/30 to-bobby-lime/0",
+  },
 ];
 
 export default function HomeRouteCards() {
   const prefersReducedMotion = useReducedMotionPreference();
-  const [showGif, setShowGif] = useState(false);
-
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-forest-black px-6 py-20 sm:py-28">
+    <section id="ecosystem" className="relative overflow-hidden border-t border-white/5 bg-forest-black px-6 py-20 sm:py-28">
       <ForestSigil3D />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(200,255,0,0.08),transparent_42%)]" />
 
@@ -68,53 +75,30 @@ export default function HomeRouteCards() {
           className="mx-auto max-w-3xl text-center"
         >
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-old-gold">
-            Project Overview
+            The Bobby Hood Ecosystem
           </p>
-          <button
-            type="button"
-            onClick={() => setShowGif(true)}
-            className="cursor-pointer font-display text-3xl leading-tight text-warm-ivory transition-colors duration-300 hover:text-bobby-lime sm:text-4xl md:text-5xl"
-          >
-            Enter the Forest
-          </button>
+          <h2 className="font-display text-3xl leading-tight text-warm-ivory sm:text-4xl md:text-5xl">
+            One outlaw. Four connected paths.
+          </h2>
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-warm-ivory/70 sm:text-base">
-            Bobby Hood is structured across three core pillars: narrative,
-            community, and content. Explore how each pillar supports the
-            project&apos;s growth within the Robinhood Chain ecosystem.
+            Bobby Hood combines original character IP, transparent agent
+            intelligence, competitive gaming and community participation within
+            the Robinhood Chain ecosystem.
           </p>
 
-          {showGif && (
-            <motion.div
-              initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="relative mx-auto mt-10 max-w-2xl overflow-hidden rounded-[1.75rem] border border-bobby-lime/25 shadow-[0_30px_100px_rgba(0,0,0,0.45)]"
-            >
-              <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-bobby-lime/10 blur-2xl" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/gifs/robinhoodgif.gif"
-                alt="Bobby Hood animation"
-                className="relative w-full"
-              />
-            </motion.div>
-          )}
-
-          <div className="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-4 border-y border-white/10 py-6">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="font-display text-xl text-bobby-lime sm:text-2xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-warm-ivory/50 sm:text-xs">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative mx-auto mt-10 max-w-2xl overflow-hidden rounded-[1.75rem] border border-bobby-lime/25 shadow-[0_30px_100px_rgba(0,0,0,0.45)]"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/gifs/robinhoodgif.gif" alt="Bobby Hood animation" className="relative w-full" />
+          </motion.div>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3 [perspective:1200px]">
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 [perspective:1200px]">
           {ROUTE_CARDS.map((card, index) => (
             <motion.a
               key={card.title}
@@ -143,9 +127,14 @@ export default function HomeRouteCards() {
                   <p className="pt-2 text-xs uppercase tracking-[0.25em] text-old-gold/90">
                     {card.eyebrow}
                   </p>
-                  <span className={`flex h-11 min-w-11 items-center justify-center rounded-full border bg-forest-black/70 px-3 font-display text-sm transition-transform duration-300 group-hover:scale-105 ${card.markerClass}`}>
-                    {card.marker}
-                  </span>
+                  <div className="flex flex-col items-end gap-2">
+                    <span className={`flex h-11 min-w-11 items-center justify-center rounded-full border bg-forest-black/70 px-3 font-display text-sm transition-transform duration-300 group-hover:scale-105 ${card.markerClass}`}>
+                      {card.marker}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-[0.18em] text-bobby-lime">
+                      {card.status}
+                    </span>
+                  </div>
                 </div>
 
                 <h3 className="font-display text-2xl leading-tight text-warm-ivory sm:text-3xl">

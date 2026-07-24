@@ -13,6 +13,15 @@ const FACTS = [
   { label: "Current mission", value: "Conquer the timeline" },
 ];
 
+const AGENT_FACTS = [
+  { label: "Network", value: "Robinhood Chain" },
+  { label: "Role", value: "Market Scout" },
+  { label: "Signal classes", value: "Watch / Momentum / High Risk / Avoid" },
+  { label: "Reputation", value: "Designed to be verifiable onchain" },
+  { label: "Execution", value: "Human-controlled" },
+  { label: "Status", value: "Building in public" },
+];
+
 export default function BobbyProfile() {
   const prefersReducedMotion = useReducedMotionPreference();
 
@@ -76,6 +85,39 @@ export default function BobbyProfile() {
             ))}
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.8 }}
+          className="mt-14 rounded-[1.75rem] border border-bobby-lime/20 bg-soft-black/70 p-6 sm:p-8"
+        >
+          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-old-gold">
+                Agent File
+              </p>
+              <h3 className="mt-2 font-display text-2xl text-warm-ivory sm:text-3xl">
+                The planned utility behind the outlaw.
+              </h3>
+            </div>
+            <span className="w-fit rounded-full border border-bobby-lime/25 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-bobby-lime">
+              Planned product direction
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {AGENT_FACTS.map((fact) => (
+              <div key={fact.label} className="border-l-2 border-bobby-lime/30 pl-4">
+                <p className="mb-1 text-xs uppercase tracking-widest text-muted-fog">
+                  {fact.label}
+                </p>
+                <p className="font-display text-lg text-warm-ivory">{fact.value}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

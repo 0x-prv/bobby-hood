@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import { useReducedMotionPreference } from "@/hooks/useReducedMotionPreference";
 
 interface Particle {
@@ -11,21 +11,35 @@ interface Particle {
   size: number;
 }
 
+const PARTICLE_SEED = 0xb0bb7;
+
+function createSeededGenerator(seed: number) {
+  let state = seed;
+
+  return () => {
+    state += 0x6d2b79f5;
+    let value = state;
+    value = Math.imul(value ^ (value >>> 15), value | 1);
+    value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function createParticles(count: number): Particle[] {
+  const nextValue = createSeededGenerator(PARTICLE_SEED);
+
+  return Array.from({ length: count }, (_, id) => ({
+    id,
+    left: nextValue() * 100,
+    delay: nextValue() * 8,
+    duration: 6 + nextValue() * 6,
+    size: 1 + nextValue() * 2,
+  }));
+}
+
 export default function ParticleLayer({ count = 18 }: { count?: number }) {
   const prefersReducedMotion = useReducedMotionPreference();
-  const [particles, setParticles] = useState<Particle[]>([]);
-
-  useEffect(() => {
-    setParticles(
-      Array.from({ length: count }, (_, i) => ({
-        id: i,
-        left: Math.random() * 100,
-        delay: Math.random() * 8,
-        duration: 6 + Math.random() * 6,
-        size: 1 + Math.random() * 2,
-      }))
-    );
-  }, [count]);
+  const particles = useMemo(() => createParticles(count), [count]);
 
   if (prefersReducedMotion || particles.length === 0) return null;
 

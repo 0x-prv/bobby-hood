@@ -5,24 +5,24 @@ import { useReducedMotionPreference } from "@/hooks/useReducedMotionPreference";
 
 const FEATURES = [
   {
-    title: "Built on Robinhood Chain",
+    title: "Native to the new forest",
     description:
-      "Bobby is pointed at Robinhood Chain from day one: a familiar legend reloaded for a new onchain frontier.",
+      "An original community character built around the culture and opportunity emerging on Robinhood Chain.",
   },
   {
-    title: "Memes fly farther than arrows",
+    title: "More than a ticker",
     description:
-      "No fake royal roadmap. Bobby's weapon is simple, shareable attention that the timeline can rally around.",
+      "Bobby is designed to connect character IP, agent intelligence, gaming and community participation.",
   },
   {
-    title: "An underdog people can wear",
+    title: "Public performance",
     description:
-      "The hood belongs to every holder, maker, raider, and believer who wants the forgotten cousin to win.",
+      "The planned agent will preserve its calls and measure its results instead of hiding failed predictions.",
   },
   {
-    title: "Every raid adds to the legend",
+    title: "Community-written legend",
     description:
-      "Each meme, post, and mention writes the next chapter. The community isn't just watching Bobby's story, it's building it.",
+      "Every meme, game, signal and contribution helps write the next chapter of Bobby Hood.",
   },
 ];
 
@@ -42,11 +42,11 @@ export default function WhyBobby() {
             Why Bobby
           </p>
           <h2 className="font-display text-3xl leading-tight text-warm-ivory sm:text-4xl md:text-5xl">
-            A meme outlaw with a story the trenches can remember.
+            A meme people can remember. A reputation they can verify.
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-warm-ivory/70 sm:text-base">
-            Bobby is not trying to be Robin. He is the missed shot, the bad luck,
-            and the second chance wrapped in one green hood.
+            The story makes Bobby memorable. The planned public record is designed
+            to make his future calls accountable.
           </p>
         </motion.div>
 

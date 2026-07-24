@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useReducedMotionPreference } from "@/hooks/useReducedMotionPreference";
 import { CONTRACT_ADDRESS, SOCIAL_LINKS } from "@/data/socialLinks";
-import { DISCLAIMER, SITE_TICKER } from "@/lib/constants";
+import { DISCLAIMER } from "@/lib/constants";
 
 export default function FinalCTA() {
   const prefersReducedMotion = useReducedMotionPreference();
@@ -28,13 +28,13 @@ export default function FinalCTA() {
         </p>
 
         <h2 className="font-display text-3xl leading-tight text-warm-ivory sm:text-4xl md:text-5xl">
-          Put on the hood. Join the Bobby Hood Gang.
+          Follow the outlaw becoming an agent.
         </h2>
 
         <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-warm-ivory/70 sm:text-base">
-          {SITE_TICKER} is the meme outlaw story built for the new forest. Follow
-          the official channel, wait for verified contract details, and never trust
-          copycats hiding in the trees.
+          Bobby Hood is building an original Robinhood Chain character ecosystem
+          across intelligence, gaming, story and community. Follow the official
+          channel for verified product updates and contract information.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -45,7 +45,7 @@ export default function FinalCTA() {
               rel="noopener noreferrer"
               className="w-full rounded-full bg-bobby-lime px-8 py-3 text-center text-sm font-medium uppercase tracking-wider text-forest-black transition-colors hover:bg-dark-lime sm:w-auto"
             >
-              Follow on {primarySocialLink.label}
+              Follow the Build
             </a>
           ) : null}
 
@@ -68,6 +68,10 @@ export default function FinalCTA() {
 
         <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-muted-fog/80">
           {DISCLAIMER}
+        </p>
+        <p className="mx-auto mt-3 max-w-2xl text-xs leading-relaxed text-muted-fog/80">
+          Any future contract address will be published only on this website and
+          the official Bobby Hood X account.
         </p>
       </motion.div>
     </section>

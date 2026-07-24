@@ -1,5 +1,6 @@
 import { SOCIAL_LINKS } from "@/data/socialLinks";
 import { FOOTER_DISCLAIMER, RISK_DISCLOSURE, COPYRIGHT } from "@/lib/constants";
+import Link from "next/link";
 
 export default function Footer() {
   const xLink =
@@ -14,6 +15,12 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-wrap gap-x-8 gap-y-3 text-sm uppercase tracking-wider text-warm-ivory/70">
+            <Link href="/#agent" className="hover:text-bobby-lime transition-colors">
+              Agent
+            </Link>
+            <Link href="/#game" className="hover:text-bobby-lime transition-colors">
+              Game
+            </Link>
             <a
               href="/story"
               className="hover:text-bobby-lime transition-colors"

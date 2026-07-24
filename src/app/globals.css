@@ -41,6 +41,15 @@ html {
   scroll-behavior: auto;
 }
 
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--color-bobby-lime);
+  outline-offset: 4px;
+}
+
 body {
   background: var(--color-forest-black);
   color: var(--color-warm-ivory);

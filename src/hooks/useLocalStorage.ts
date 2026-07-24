@@ -7,16 +7,26 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      if (item !== null) {
-        setValue(JSON.parse(item));
+    let cancelled = false;
+
+    const timeout = window.setTimeout(() => {
+      if (cancelled) return;
+      try {
+        const item = window.localStorage.getItem(key);
+        if (item !== null) {
+          setValue(JSON.parse(item));
+        }
+      } catch {
+        // ignore parse errors, keep initialValue
+      } finally {
+        setHydrated(true);
       }
-    } catch {
-      // ignore parse errors, keep initialValue
-    } finally {
-      setHydrated(true);
-    }
+    }, 0);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeout);
+    };
   }, [key]);
 
   const setStoredValue = useCallback(
